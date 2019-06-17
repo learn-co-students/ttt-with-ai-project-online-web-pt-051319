@@ -58,8 +58,18 @@ class Game
   end
   
   def turn
-    self.player_1.move(@board)
+    @board.cells.display
+    player = self.current_player
+    move_1 = player.move(@board)
     
+    if @board.valid_move?(move_1) == true && @board.taken?(move_1) == false
+      @board.update(move_1, player)
+      @board.cells.display
+      
+    else 
+      puts "invalid"
+      player.move(@board)
+    end   
   end  
 
 end  
