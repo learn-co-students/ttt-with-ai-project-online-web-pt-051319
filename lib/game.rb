@@ -26,15 +26,43 @@ class Game
   end
   
   def won?
-    
     WIN_COMBINATIONS.each do |combo|
       # binding.pry
-      if board.cells[combo[0]] && board.cells[combo[1]] && board.cells[combo[2]] == "X" || board.cells[combo[0]] && board.cells[combo[1]] && board.cells[combo[2]] == "O"
-        return combo
-      else
-        false   
+      if board.cells[combo[0]] == "X" && board.cells[combo[1]] == "X" && board.cells[combo[2]] == "X" || board.cells[combo[0]] == "O" && board.cells[combo[1]] == "O" && board.cells[combo[2]] == "O"
+        return combo 
       end
-    end 
-  end   
+    end
+    false 
+  end
+
+  def draw?
+    self.won? == false && self.board.full? == true
+  end  
   
+  def over?
+    case
+    when self.draw? || self.won? == true
+      return true
+    when self.board.full? == false && self.won? == false
+      return false
+    end
+    true  
+  end
+
+  def winner
+    if self.won?
+      return self.board.cells[self.won?[0]]
+    else
+      return nil
+    end  
+  end
+  
+  def turn
+    binding.pry
+    self.player_1.move(@board)
+    if @board.taken?(self.player_1.move(@board))
+      self.player_2.move(self.board)
+    end
+  end  
+
 end  
