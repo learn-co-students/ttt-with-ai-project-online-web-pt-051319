@@ -58,11 +58,8 @@ class Game
   end
   
   def turn
-    binding.pry
     self.player_1.move(@board)
-    if @board.taken?(self.player_1.move(@board))
-      self.player_2.move(self.board)
-    end
+    
   end  
 
 end  

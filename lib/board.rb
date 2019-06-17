@@ -42,7 +42,7 @@ class Board
   end
   
   def update(spot, player)
-    
+    self.cells[spot.to_i-1] = player.token
   end  
 
 end  
