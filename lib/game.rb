@@ -23,6 +23,18 @@ class Game
     when x.odd?
       return @player_2
     end  
-  end  
+  end
+  
+  def won?
+    
+    WIN_COMBINATIONS.each do |combo|
+      # binding.pry
+      if board.cells[combo[0]] && board.cells[combo[1]] && board.cells[combo[2]] == "X" || board.cells[combo[0]] && board.cells[combo[1]] && board.cells[combo[2]] == "O"
+        return combo
+      else
+        false   
+      end
+    end 
+  end   
   
 end  
