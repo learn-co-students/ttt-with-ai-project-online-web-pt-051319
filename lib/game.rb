@@ -58,13 +58,13 @@ class Game
   end
   
   def turn
-    @board.cells.display
+    # @board.cells.display
     player = self.current_player
     move_1 = player.move(@board)
     
     if @board.valid_move?(move_1) == true && @board.taken?(move_1) == false
       @board.update(move_1, player)
-      @board.cells.display
+      # @board.cells.display
       
     else 
       puts "invalid"
@@ -73,6 +73,15 @@ class Game
   end
   
   def play
+    while over? == false 
+      turn
+    end
+    if won?
+      puts "Congratulations #{winner}!"
+    end
+    if draw?
+      puts "Cat's Game!" 
+    end     
   end  
 
 end  
