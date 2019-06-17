@@ -70,6 +70,9 @@ class Game
       puts "invalid"
       player.move(@board)
     end   
+  end
+  
+  def play
   end  
 
 end  
