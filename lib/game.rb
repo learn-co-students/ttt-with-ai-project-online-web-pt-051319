@@ -9,6 +9,14 @@ class Game
     @player_2 = player2
     @board = board
   end
+
+  def self.token_determinator(arg)
+    if arg.upcase == "X"
+      return "O"
+    elsif arg.upcase == "O"
+      return "X"
+    end
+  end      
   
   def self.start
     # binding.pry
@@ -23,7 +31,8 @@ class Game
       when reply == "1"
         puts "Would you like to be X or O?"
         token_reply = gets.chomp
-        game1 = Game.new(Players::Human.new(token_reply.upcase), Players::Computer.new("O"), Board.new)
+        other_token = token_determinator(token_reply)
+        game1 = Game.new(Players::Human.new(token_reply.upcase), Players::Computer.new(other_token), Board.new)
         game1.play
       when reply == "2"
         puts "Does player 1 want to be X or O?"
