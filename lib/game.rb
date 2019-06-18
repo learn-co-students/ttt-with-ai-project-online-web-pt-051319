@@ -8,6 +8,32 @@ class Game
     @player_1 = player1
     @player_2 = player2
     @board = board
+  end
+  
+  def self.start
+    # binding.pry
+    puts "Welcome to Tic-Tac-Toe on steriods! It's probably not great but here goes..."
+    puts "Would you like to play a 0, 1, or 2 player game?"
+    reply = gets.chomp
+    
+      case
+      when reply == "0"
+        game0 = Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new)
+        game0.play
+      when reply == "1"
+        puts "Would you like to be X or O?"
+        token_reply = gets.chomp
+        game1 = Game.new(Players::Human.new(token_reply.upcase), Players::Computer.new("O"), Board.new)
+        game1.play
+      when reply == "2"
+        puts "Does player 1 want to be X or O?"
+        token2 = gets.chomp
+        puts "Does player 2 want to be X or O?"
+        token3 = gets.chomp
+        game2 = Game.new(Players::Human.new(token2.upcase), Players::Human.new(token3.upcase), Board.new)
+        game2.play
+      
+    end  
   end  
 
   def board
@@ -58,13 +84,13 @@ class Game
   end
   
   def turn
-    # @board.cells.display
+    @board.display
     player = self.current_player
     move_1 = player.move(@board)
     
     if @board.valid_move?(move_1) == true && @board.taken?(move_1) == false
       @board.update(move_1, player)
-      # @board.cells.display
+      @board.display
       
     else 
       puts "invalid"

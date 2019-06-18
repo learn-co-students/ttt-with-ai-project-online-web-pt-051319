@@ -7,6 +7,80 @@ module Players
       case
       when board.taken?(5) == false
         return "5"
+      when board.taken?(2) && board.cells[1] == @token && board.taken?(5) && board.cells[4] == @token && !board.taken?(8)
+        return "8"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(6) && board.cells[5] == @token && !board.taken?(4)
+        return "4"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(8) && board.cells[7] == @token && !board.taken?(2)
+        return "2"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(4) && board.cells[3] == @token && !board.taken?(6)
+        return "6"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(1) && board.cells[0] == @token && !board.taken?(9)
+        return "9"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(3) && board.cells[2] == @token && !board.taken?(7)
+        return "7"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(7) && board.cells[6] == @token && !board.taken?(3)
+        return "3"
+      when board.taken?(5) && board.cells[4] == @token && board.taken?(9) && board.cells[8] == @token && !board.taken?(1)
+        return "1"       
+      when board.taken?(1) && board.cells[0] == @token && board.taken?(2) && board.cells[1] == @token && !board.taken?(3)
+        return "3"
+      when board.taken?(7) && board.cells[6] == @token && board.taken?(8) && board.cells[7] == @token && !board.taken?(9)
+        return "9"
+      when board.taken?(2) && board.cells[1] == @token && board.taken?(3) && board.cells[2] == @token && !board.taken?(1)
+        return "1"
+      when board.taken?(8) && board.cells[7] == @token && board.taken?(9) && board.cells[8] == @token && !board.taken?(7)
+        return "7"
+      when board.taken?(1) && board.cells[0] == @token && board.taken?(4) && board.cells[3] == @token && !board.taken?(7)
+        return "7"
+      when board.taken?(7) && board.cells[6] == @token && board.taken?(4) && board.cells[3] == @token && !board.taken?(1)
+        return "1"
+      when board.taken?(1) && board.cells[0] == @token && board.taken?(7) && board.cells[6] == @token && !board.taken?(4)
+        return "4"
+      when board.taken?(1) && board.cells[0] == @token && board.taken?(3) && board.cells[2] == @token && !board.taken?(2)
+        return "2"
+      when board.taken?(3) && board.cells[2] == @token && board.taken?(9) && board.cells[8] == @token && !board.taken?(6)
+        return "6"
+      when board.taken?(7) && board.cells[6] == @token && board.taken?(9) && board.cells[8] == @token && !board.taken?(8)
+        return "8"
+
+      when board.taken?(2) && board.cells[1] != @token && board.taken?(5) && board.cells[4] != @token && !board.taken?(8)
+        return "8"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(6) && board.cells[5] != @token && !board.taken?(4)
+        return "4"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(8) && board.cells[7] != @token && !board.taken?(2)
+        return "2"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(4) && board.cells[3] != @token && !board.taken?(6)
+        return "6"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(1) && board.cells[0] != @token && !board.taken?(9)
+        return "9"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(3) && board.cells[2] != @token && !board.taken?(7)
+        return "7"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(7) && board.cells[6] != @token && !board.taken?(3)
+        return "3"
+      when board.taken?(5) && board.cells[4] != @token && board.taken?(9) && board.cells[8] != @token && !board.taken?(1)
+        return "1"       
+      when board.taken?(1) && board.cells[0] != @token && board.taken?(2) && board.cells[1] != @token && !board.taken?(3)
+        return "3"
+      when board.taken?(7) && board.cells[6] != @token && board.taken?(8) && board.cells[7] != @token && !board.taken?(9)
+        return "9"
+      when board.taken?(2) && board.cells[1] != @token && board.taken?(3) && board.cells[2] != @token && !board.taken?(1)
+        return "1"
+      when board.taken?(8) && board.cells[7] != @token && board.taken?(9) && board.cells[8] != @token && !board.taken?(7)
+        return "7"
+      when board.taken?(1) && board.cells[0] != @token && board.taken?(4) && board.cells[3] != @token && !board.taken?(7)
+        return "7"
+      when board.taken?(7) && board.cells[6] != @token && board.taken?(4) && board.cells[3] != @token && !board.taken?(1)
+        return "1"
+      when board.taken?(1) && board.cells[0] != @token && board.taken?(7) && board.cells[6] != @token && !board.taken?(4)
+        return "4"
+      when board.taken?(1) && board.cells[0] != @token && board.taken?(3) && board.cells[2] != @token && !board.taken?(2)
+        return "2"
+      when board.taken?(3) && board.cells[2] != @token && board.taken?(9) && board.cells[8] != @token && !board.taken?(6)
+        return "6"
+      when board.taken?(7) && board.cells[6] != @token && board.taken?(9) && board.cells[8] != @token && !board.taken?(8)
+        return "8"
+
       when board.taken?(1) == false
         return "1"
       when board.taken?(3) == false
@@ -15,40 +89,14 @@ module Players
         return "7"
       when board.taken?(9) == false
         return "9"
-      when board.taken?(2) && board.taken?(5)
-        return "8"
-      when board.taken?(5) && board.taken?(6)
-        return "4"
-      when board.taken?(5) && board.taken?(8)
+      when board.taken?(2) == false
         return "2"
-      when board.taken?(5) && board.taken?(4)
+      when board.taken?(4) == false
+        return "4"
+      when board.taken?(6) == false
         return "6"
-      when board.taken?(5) && board.taken?(1)
-        return "9"
-      when board.taken?(5) && board.taken?(3)
-        return "7"
-      when board.taken?(5) && board.taken?(7)   
-        return "3"
-      when board.taken?(5) && board.taken?(9)
-        return "1"       
-      when board.taken?(1) && board.taken?(2)
-        return "3"
-      when board.taken?(7) && board.taken?(8)
-        return "9"
-      when board.taken?(2) && board.taken?(3)
-        return "1"
-      when board.taken?(8) && board.taken?(9)
-        return "7"
-      when board.taken?(1) && board.taken?(4)
-        return "7"
-      when board.taken?(7) && board.taken?(4)
-        return "1"
-      when board.taken?(1) && board.taken?(1)
-        return "4"
-      when board.taken?(1) && board.taken?(3)
-        return "2"
-      when board.taken?(1) && board.taken?(7)
-        return "4"                              
+      when board.taken?(8) == false
+        return "8"                                        
       end  
     end  
 
