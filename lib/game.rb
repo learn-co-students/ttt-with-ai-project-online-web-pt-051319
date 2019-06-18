@@ -28,7 +28,7 @@ class Game
       when reply == "2"
         puts "Does player 1 want to be X or O?"
         token2 = gets.chomp
-        puts "Does player 2 want to be X or O?"
+        puts "Let's hope player 2 knows what the fuck player 1 wants and doesn't fuck this up because I don't feel like programming that functionality..."
         token3 = gets.chomp
         game2 = Game.new(Players::Human.new(token2.upcase), Players::Human.new(token3.upcase), Board.new)
         game2.play
