@@ -1,3 +1,5 @@
+require 'pry'
+
 class Game
 
    attr_accessor :board, :player_1, :player_2
@@ -47,7 +49,7 @@ class Game
   end
 
    def turn(board = @board)
-    input = current_player.move(@board)
+    input = current_player.move(board = @board)
     if !@board.valid_move?(input)
       turn
     else
@@ -57,7 +59,7 @@ class Game
   end
 
    def play
-    turn while !over?
+    turn until over?
     puts "Congratulations #{winner}!" if winner
     puts "Cat's Game!" if draw?
   end

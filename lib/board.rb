@@ -27,6 +27,14 @@ class Board
 
      position
   end
+  
+  def update(cell_number, player)
+    if valid_move?(cell_number)
+      @cells[cell_number.to_i - 1] = player.token
+    end
+    @cells
+  end
+  
 
    def full?
     if @cells.any? { |cell| cell == " " }
@@ -56,11 +64,6 @@ class Board
     end
   end
 
-   def update(cell_number, player)
-    if valid_move?(cell_number)
-      @cells[cell_number.to_i - 1] = player.token
-    end
-    @cells
-  end
+   
 
  end
